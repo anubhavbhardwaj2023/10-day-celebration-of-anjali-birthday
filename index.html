@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>💖 Birthday Countdown 💖</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Background decor -->
+    <div id="decor"></div>
+    <!-- Background Music -->
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mp3">
+</audio>
+
+<!-- Popup Overlay -->
+<div id="musicPopup" class="popup-overlay active">
+  <div class="popup-box">
+    <h2 class="gradient-text">🎶 Surprise Start Karna Hai? 💖</h2>
+    <p>Baby 😘, ek chhota sa music gift tumhare liye 💝.<br>
+       Button dabao aur surprise start ho jaayega 🎂🎉</p>
+    <button class="btn" onclick="startMusic()">▶️ Play Music</button>
+  </div>
+</div>
+
+
+
+    <div class="container">
+
+        <!-- Welcome Screen -->
+        <div id="welcome" class="page active">
+            <h1>💖 Countdown Begins, My Love 💖</h1>
+            <h3 id="mainTitle">Babu 😘, bas 10 din aur… fir sabse special din 🎂✨</h3>
+            <p>
+                Jaise-jaise din guzar rahe hain, mera excitement aur pyaar dono badh rahe hain 💕.
+                Sirf <strong>10 DAYS</strong> aur phir hum celebrate karenge tumhara beautiful birthday 🎉🥳.
+            </p>
+            <button class="btn" onclick="showCountdown()">😘 Surprise Unlock Karo, Baby 💝</button>
+        </div>
+
+        <!-- Countdown Page -->
+        <div id="countdownPage" class="page">
+            <h2 class="gradient">🎉 Birthday Countdown 🎉</h2>
+            <h3>13 October 🎂</h3>
+
+            <div id="countBox">
+                <span id="days">00</span><small>Days</small>
+                <span id="hours">00</span><small>Hours</small>
+                <span id="minutes">00</span><small>Mins</small>
+                <span id="seconds">00</span><small>Secs</small>
+            </div>
+
+            <p class="love-text">Meri jaan ka sabse pyaara din ❤️</p>
+            <button class="cele-btn" onclick="showCelebrate()">🎊 Let's Celebrate 🎊</button>
+        </div>
+
+        <!-- Celebrate Page -->
+        <!-- Celebrate Page -->
+        <!-- Celebrate Page -->
+        <div id="celebratePage" class="page">
+            <h1 class="glow">🎂 Time to Celebrate 🥳</h1>
+            <p class="love-text">🎂 Birthday Loading... Just 10 Days Left! 💖 Get ready for unlimited love & surprises
+                😘</p>
+
+
+            <!-- GIF from Tenor link -->
+            <img src="gift.png" class="box-gif" alt="Celebration">
+
+            <button class="btn" onclick="showCakePage()">👉 Next Surprise 🍰</button>
+        </div>
+
+
+
+        <!-- Cake Page -->
+        <!-- Cake Page -->
+        <div id="cakePage" class="page">
+            <h2 class="cake-text">🎂 Happy 20th Birthday in Advance 💖</h2>
+            <p class="cake-subtext">Bas kuch din aur... meri jaan 20 saal ki hogi 🥳</p>
+
+            <img src="cake.png" class="cake-gif" alt="Celebration">
+
+            <p class="cake-flirty">20 saal ka cake bhi fail… tumhari sweetness ke saamne 😘</p>
+
+            <button class="btn glow-btn" onclick="showHugPage()">✨ Continue Your Magic ✨</button>
+        </div>
+
+        <!-- Hug Page -->
+
+        <div id="hugPage" class="page">
+            <h1 class="gradient-text">🤗 Can I Get a Hug, Baby? 🤭💖</h1>
+            <p>
+                Babu 😘, abhi na mujhe tumhari <strong>tight hug</strong> ki bohot need hai 😍
+                Tumhare arms me aake sab tension gayab ho jayegi 💫
+                Toh bolo… hug dogi ya main muu toduu tera? 😏🔥
+            </p>
+            <img src="https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif" class="hug-img" />
+            <button class="btn" onclick="showHugPopup()">💝 Give Me a Hug 💝</button>
+        </div>
+
+        <!-- Hug Popup -->
+        <div id="hugPopup" class="page">
+            <h1 class="gradient-text">💖 Tightest Hug Ever 💖</h1>
+            <p>
+                Ab tum meri arms me ho 😘
+                Aur sach kahun toh ab tumhe kabhi chhodne ka mann hi nahi hai 💕
+                Tum meri jaan ka sabse comfortable aur safest place ho 😍🔥
+            </p>
+            <img src="https://media.giphy.com/media/wnsgren9NtITS/giphy.gif" class="hug-img" />
+            <button class="btn" onclick="backToHug()">👉 Next Surprise 🍰</button>
+        </div>
+        <div id="final" class="page">
+            <!-- full-screen canvas for confetti / fireworks -->
+            <!-- <div id="fxLayer"></div> -->
+
+            <div class="final-car">
+                <div class="final-heart">🎉💖</div>
+
+                <p class="gradient-text gloww">
+                    Bas kuch din reh gaye hain… aur mera dil ruk hi nahi raha tujhe wish karne se 😘❤️<br><br>
+                    Advance Happy Birthday 🎂, mere pagal sa bhai,meri sweet heart aur cute sa baby 😜💞.<br><br>
+
+
+                    So once again, Happy Birthday in Advance, meri jaan 🎉🎈 ya toh bas Trailer tha Surprise abhi baaki
+                    Wait 13 October
+                    hai 😉🔥
+                </p>
+
+            </div>
+
+
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

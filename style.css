@@ -1,0 +1,799 @@
+/* Google Fonts (use in <head>) 
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+*/
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Animated Gradient Background */
+body {
+  min-height: 100vh;
+  background: linear-gradient( #cc2b5e, #753a88);
+  background-size: 800% 800%;
+  animation: gradientShift 12s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  min-height: 100vh;
+  overflow-x: hidden;   /* X axis scroll band */
+  overflow-y: hidden;   /* Y axis scroll bhi lock */
+}
+.balloon, .confetti {
+  position: fixed;  /* absolute se fixed */
+  pointer-events: none; /* click block na ho */
+}
+
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Sparkle Texture */
+#decor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.25;
+  animation: sparkle 6s linear infinite;
+  z-index: 1;
+}
+
+@keyframes sparkle {
+  0% { background-position: 0 0; }
+  100% { background-position: 500px 500px; }
+}
+
+/* Container */
+.container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  max-width: 600px;
+  width: 90%;
+  animation: fadeIn 1.5s ease-in-out, heartbeat 3s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.05); }
+  40% { transform: scale(0.95); }
+  60% { transform: scale(1.05); }
+  80% { transform: scale(0.97); }
+}
+
+/* Headings */
+h1 {
+  font-size: 2.7rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px rgba(255,255,255,0.8);
+  font-family: 'Dancing Script', cursive;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Paragraph */
+p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Button */
+.btn {
+  padding: 0.9rem 2.2rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff85c1, #a770ef);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  text-shadow: 0 0 10px #fff;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 80px;
+  height: 100px;
+  border-radius: 50% 50% 50% 50%;
+  animation: floatUp 8s ease-in-out infinite;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background: white;
+  transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-400px) rotate(10deg); }
+  100% { transform: translateY(-800px) rotate(-10deg); opacity: 0; }
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: #fff;
+  opacity: 0.8;
+  animation: fall linear forwards;
+  z-index: 1;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+.cat-gif {
+  width: 120px;
+  height: auto;
+  margin: 15px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: block;
+}
+
+.loader {
+  margin: 20px auto;
+  border: 5px solid rgba(255,255,255,0.2);
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#timer {
+  font-size: 1.5rem;
+  margin: 20px 0;
+  font-weight: bold;
+  text-shadow: 0 0 10px #fff;
+}
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(270deg, #ff6ec7, #9d50bb, #ff85c1, #a770ef);
+  background-size: 800% 800%;
+  animation: gradientShift 12s ease infinite;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  color: #fff;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#decor {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.2;
+  animation: sparkle 6s linear infinite;
+  z-index: 1;
+}
+
+@keyframes sparkle {
+  0% { background-position: 0 0; }
+  100% { background-position: 500px 500px; }
+}
+
+.container {
+  z-index: 10;
+  width: 90%;
+  max-width: 380px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem 1.2rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+
+/* Welcome */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Dancing Script', cursive;
+}
+p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.btn {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff85c1, #a770ef);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Countdown */
+#countBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+#countBox span {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.9);
+}
+#countBox small {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
+.love-text {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+
+
+/* Extra Celebrate Button */
+.cele-btn {
+  margin-top: 15px;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffb347, #ff6ec7);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(255,255,255,0.6);
+}
+.cele-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #fff;
+}
+
+/* Glow Celebrate Title */
+.glow {
+  font-size: 2rem;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff6ec7, 0 0 30px #a770ef;
+  animation: glowPulse 2s infinite alternate;
+}
+@keyframes glowPulse {
+  from { text-shadow: 0 0 5px #fff, 0 0 15px #ff6ec7; }
+  to   { text-shadow: 0 0 20px #fff, 0 0 40px #a770ef; }
+}
+/* Cake Page */
+.cake-img {
+  width: 200px;
+  margin: 10px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.cake-text {
+  font-size: 1.4rem;
+  margin: 15px 0;
+  text-shadow: 0 0 10px #fff, 0 0 15px #ff6ec7;
+  font-family: 'Dancing Script', cursive;
+}
+
+.cake-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.cake-img {
+  width: 200px;
+  margin: 10px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Candle Flames */
+.candles {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.flame {
+  width: 10px;
+  height: 20px;
+  background: radial-gradient(circle, yellow 20%, orange 70%, red 100%);
+  border-radius: 50%;
+  animation: flicker 0.2s infinite alternate;
+}
+@keyframes flicker {
+  from { transform: scaleY(1); opacity: 1; }
+  to   { transform: scaleY(0.8); opacity: 0.7; }
+}
+
+/* Wishes Text */
+#wishText {
+  margin: 10px 0;
+  font-style: italic;
+  font-size: 1rem;
+  color: #fff;
+  text-shadow: 0 0 8px #ff6ec7;
+}
+
+/* Gift Box */
+#giftBox {
+  display: none;
+  margin: 15px auto;
+  padding: 1rem;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  animation: fadeIn 1s ease;
+}
+.tenor-gif-embed iframe {
+  background: transparent !important;
+}
+.box-gif {
+  height: 70vw;
+  width: 80vw;
+  position: relative;
+ 
+ 
+  margin: 15px auto;
+  display: block;
+  background: transparent;
+}
+
+
+.cake-gif {
+  height: 70vw;
+  width: 100vw;
+  position: relative;
+  right: 10vw;
+ 
+ 
+  margin: 15px auto;
+  display: block;
+  background: transparent;
+}
+/* Cake Page */
+.cake-text {
+  font-size: 2rem;
+  text-align: center;
+  color: #ffccff;
+  margin-bottom: 6px;
+  text-shadow: 0 0 10px #ff3399;
+}
+
+.cake-subtext {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #fff;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.cake-gif {
+ 
+  box-shadow: 0 0 15px rgba(255, 100, 200, 0.6);
+}
+
+.cake-flirty {
+  font-size: 0.95rem;
+  text-align: center;
+  color: #ff99cc;
+  margin: 10px 0;
+}
+
+/* Glow Button */
+.glow-btn {
+  margin-top: 10px;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 8px #ff66cc; }
+  50% { box-shadow: 0 0 18px #ff3399; }
+  100% { box-shadow: 0 0 8px #ff66cc; }
+}
+/* Cake Heading */
+.cake-text {
+  font-size: 2rem;
+  text-align: center;
+  color: #fff; /* pure white for max contrast */
+  margin-bottom: 6px;
+  text-shadow: 0 0 12px #ff00cc, 0 0 22px #ff66cc, 0 0 30px #000; /* bright + dark shadow */
+}
+
+/* Cake Subtext */
+.cake-subtext {
+  font-size: 1rem;
+  text-align: center;
+  color: #ffffe6; /* light yellowish white */
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-shadow: 0 0 6px #000, 0 0 12px #ff33cc;
+}
+
+/* Flirty Line */
+.cake-flirty {
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  margin: 10px 0;
+  text-shadow: 0 0 8px #ff3399, 0 0 14px #000;
+}
+/* Hug Page */
+#hugPage {
+  text-align: center;
+}
+.hug-img {
+  width: 180px;
+  margin: 15px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/* Hug Popup */
+#hugPopup {
+  text-align: center;
+  padding: 20px;
+}
+.hug-popup-box {
+  background: rgba(255,255,255,0.15);
+  padding: 1.5rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  display: inline-block;
+}
+/* Common Hug Style (applied on both Hug Page & Popup) */
+/* #hugPage, #hugPopup {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  max-width: 500px;
+  margin: auto;
+} */
+
+.hug-img {
+  width: 180px;
+  margin: 15px auto;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 0, 100, 0.6);
+}
+
+#hugPage p, #hugPopup p {
+  font-size: 1rem;
+  margin: 12px 0 20px;
+  font-style: italic;
+  line-height: 1.5;
+}
+.glow-textt {
+  color: #ff66cc;
+  text-shadow: 0 0 8px #ff4da6, 0 0 16px #ff3399, 0 0 25px #d63384;
+}
+
+
+
+/* Final Confession Card */
+.final-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1.2s ease-in-out;
+}
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.music-control button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff85c1, #a770ef);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(255, 100, 200, 0.6);
+  transition: all 0.3s ease;
+}
+
+.music-control button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 100, 200, 0.8);
+}
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-overlay.active {
+  display: flex;
+}
+
+/* Popup Box */
+.popup-box {
+  background: rgba(194, 23, 23, 0.12);
+  backdrop-filter: blur(100px);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 85%;
+  box-shadow: 0 0 20px rgba(255,100,200,0.6);
+  animation: popupScale 0.4s ease;
+}/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4); /* halka dark layer */
+  backdrop-filter: blur(12px); /* 🔥 background blur */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-overlay.active {
+  display: flex;
+}
+
+
+.popup-box h2 {
+  margin-bottom: 1rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.popup-box p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* Popup Animation */
+@keyframes popupScale {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* Confetti Heart Icon */
+.final-heart {
+  font-size: 2.8rem;
+  animation: heartbeat 1.8s infinite;
+  margin-bottom: 10px;
+}
+.con{
+  font-size: 8vw;
+}
+
+/* Gradient Heading */
+#gradient-text {
+  font-size: 2rem;
+  background: linear-gradient(135deg, #ff6ec7, #a770ef, #ff85c1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  font-family: 'Dancing Script', cursive;
+}
+
+/* Confession Text */
+.final-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+/* Action Buttons */
+.final-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn.hug-btn {
+  background: linear-gradient(135deg, #ff85c1, #a770ef);
+  box-shadow: 0 0 15px rgba(255, 100, 200, 0.6);
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+}
+
+.btn.ghost:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Hug Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup-overlay.active {
+  display: flex;
+}
+
+/* Hug Popup Card */
+.hug-popup {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 1.5rem;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  animation: popupScale 0.4s ease;
+}
+
+/* Hug Popup Text */
+.hug-popup p {
+  margin: 10px 0 15px;
+  font-size: 1rem;
+  font-style: italic;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+/* Popup Animations */
+@keyframes popupScale {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+
+.gradient-textt {
+  background: linear-gradient(135deg, #ff4da6, #ff85c1, #ff3399, #d63384);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+/* @keyframes pinkGlow {
+  0%   { text-shadow: 0 0 8px #ff4da6, 0 0 15px #ff3399; }
+  50%  { text-shadow: 0 0 15px #ff66cc, 0 0 30px #ff3399; }
+  100% { text-shadow: 0 0 8px #ff4da6, 0 0 15px #d63384; }
+} */
+
+.glow-text {
+  animation: pinkGlow 2s infinite alternate;
+}
+.container{
+  margin-bottom: 20vw;
+}
+/* Glow Celebrate Title */
+.gloww {
+  font-size: 1.3rem;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff6ec7, 0 0 30px #a770ef;
+  animation: glowPulse 2s infinite alternate;
+}
+@keyframes glowPulse {
+  from { text-shadow: 0 0 5px #fff, 0 0 15px #ff6ec7; }
+  to   { text-shadow: 0 0 20px #fff, 0 0 40px #a770ef; }
+}
