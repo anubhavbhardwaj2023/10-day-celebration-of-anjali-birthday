@@ -784,9 +784,7 @@ p {
 .glow-text {
   animation: pinkGlow 2s infinite alternate;
 }
-.container{
-  margin-bottom: 20vw;
-}
+
 /* Glow Celebrate Title */
 .gloww {
   font-size: 1.3rem;
@@ -796,4 +794,5 @@ p {
 @keyframes glowPulse {
   from { text-shadow: 0 0 5px #fff, 0 0 15px #ff6ec7; }
   to   { text-shadow: 0 0 20px #fff, 0 0 40px #a770ef; }
+
 }
